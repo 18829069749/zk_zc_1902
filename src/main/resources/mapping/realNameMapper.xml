@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.j1902.mapper.RealNameMapper">
+
+    <insert id="addRealName" parameterType="com.qf.j1902.vo.RealName">
+        INSERT INTO realname (name,rzType,realName,cardnum,tel,cardimg,email,zhuangtai)
+        VALUES (#{name},#{rzType},#{realName},#{cardnum},#{tel},#{cardimg},#{email},#{zhuangtai})
+    </insert>
+    <select id="findAll" resultType="com.qf.j1902.vo.RealName">
+        SELECT * FROM realname
+    </select>
+    <select id="findOneById" parameterType="int" resultType="com.qf.j1902.vo.RealName">
+        SELECT * FROM realname WHERE ID = #{id}
+    </select>
+    <select id="findOneByUser" parameterType="String" resultType="com.qf.j1902.vo.RealName">
+        SELECT * FROM realname WHERE NAME = #{username}
+    </select>
+    <!--<select id="updateById" parameterType="com.qf.j1902.pojo.Certify">-->
+        <!--UPDATE certify SET AUDIT = #{audit} WHERE ID = #{id}-->
+    <!--</select>-->
+    <!--<delete id="delCertifyById" parameterType="int">-->
+        <!--DELETE FROM certify WHERE ID = #{id}-->
+    <!--</delete>-->
+</mapper>

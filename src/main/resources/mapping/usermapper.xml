@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.j1902.mapper.UserMapper">
+
+    <resultMap id="userMap" type="com.qf.j1902.pojo.User">
+     <id   property="id" column="ID"/>
+        <result property="name" column="NAME"/>
+        <result property="password" column="PASSWORD"/>
+        <result property="email" column="EMAIL"/>
+    </resultMap>
+    <select id="getUsers" resultMap="userMap">
+        select * from USER
+    </select>
+
+    <insert id="addUser" parameterType="com.qf.j1902.pojo.User">
+      INSERT  INTO USER (NAME,PASSWORD,EMAIL) VALUES(#{name},#{password},#{email})
+    </insert>
+    <delete id="delUser" parameterType="com.qf.j1902.pojo.User">
+        DELETE  FROM USER WHERE  ID = #{id}
+    </delete>
+
+    
+</mapper>
